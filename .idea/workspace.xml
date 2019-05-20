@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="402876df-7ed8-44c3-9d93-d76c89c522e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/draft.py" beforeDir="false" afterPath="$PROJECT_DIR$/draft.py" afterDir="false" />
+=======
+>>>>>>> f5a677c... add 4
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +31,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draft.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="135">
               <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+=======
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+>>>>>>> f5a677c... add 4
             </state>
           </provider>
         </entry>
@@ -37,8 +45,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="614">
               <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+=======
+            <state relative-caret-position="148">
+              <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
+>>>>>>> f5a677c... add 4
             </state>
           </provider>
         </entry>
@@ -70,7 +83,10 @@
         <option value="$PROJECT_DIR$/Mailer.py" />
         <option value="$USER_HOME$/Downloads/175273_nti_extract_da.txt" />
         <option value="$PROJECT_DIR$/mailer.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/draft.py" />
+=======
+>>>>>>> f5a677c... add 4
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -207,15 +223,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/draft.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="135">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+=======
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+>>>>>>> f5a677c... add 4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="614">
           <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+=======
+        <state relative-caret-position="148">
+          <caret line="74" column="7" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="74" selection-end-column="7" />
+>>>>>>> f5a677c... add 4
         </state>
       </provider>
     </entry>
