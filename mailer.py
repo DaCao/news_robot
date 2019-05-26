@@ -1,3 +1,4 @@
+import os
 import smtplib
 from email.mime.text import MIMEText
 
@@ -9,6 +10,8 @@ class Mailer(object):
         self.host = 'smtp.gmail.com'
         self.port = 465
         self.sender = 'phillycheesesteak432@gmail.com'
+        self.password = os.envi
+
         self.receiver = 'caoda0711@gmail.com'
 
 

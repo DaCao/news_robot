@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="402876df-7ed8-44c3-9d93-d76c89c522e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mailer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/peoples.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/DB/Models/Followee.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/DB/Models/SessionManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/DB/Models/WeiboStatus.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/DB/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/processors/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/run_weibo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/workers/CrawlerWorker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weibo/workers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/news_robot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/news_robot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,34 +23,154 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1609351193">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="40" />
+          <entry key="py" value="6731" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="40" />
+          <entry key="Python" value="6731" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="gitignore" value="1" />
+          <entry key="json" value="3" />
+          <entry key="py" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="3" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="21" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mailer.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/processors/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+            <state relative-caret-position="-234">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1558811870414" expanded="true" signature="229:230" ph="..." />
+                <marker date="1558811870414" expanded="true" signature="229:600" ph="..." />
+                <marker date="1558811870414" expanded="true" signature="1985:1994" ph="..." />
+                <marker date="1558811870414" expanded="true" signature="1985:2258" ph="..." />
+                <marker date="1558811870414" expanded="true" signature="2298:2559" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/175273_nti_extract_da.txt">
+        <entry file="file://$PROJECT_DIR$/weibo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="150">
+              <caret line="10" column="103" selection-start-line="10" selection-start-column="103" selection-end-line="10" selection-end-column="103" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1558810052631" expanded="true" signature="60:536" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/175273_full_text.txt">
+        <entry file="file://$PROJECT_DIR$/weibo/workers/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3146">
-              <caret line="274" column="20" selection-start-line="274" selection-end-line="274" selection-end-column="20" />
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1558811779134" expanded="true" signature="134:135" ph="..." />
+                <marker date="1558811779134" expanded="true" signature="134:140" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/workers/CrawlerWorker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="44" selection-start-line="44" selection-end-line="52" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <marker date="1558811779139" expanded="true" signature="158:159" ph="..." />
+                <marker date="1558811779139" expanded="true" signature="158:1754" ph="..." />
+                <marker date="1558811779139" expanded="true" signature="277:441" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/run_weibo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+              <folding>
+                <element signature="e#2#11#0" expanded="true" />
+                <marker date="1558811870418" expanded="true" signature="515:765" ph="..." />
+                <marker date="1558811870418" expanded="true" signature="776:1268" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/DB/Models/Followee.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weibo/DB/Models/WeiboStatus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1558829429890" expanded="true" signature="348:349" ph="..." />
+                <marker date="1558829429890" expanded="true" signature="348:354" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/weibo/DB/Models/SessionManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="65" column="81" selection-start-line="65" selection-start-column="81" selection-end-line="65" selection-end-column="81" />
+              <folding>
+                <element signature="e#1#36#0" expanded="true" />
+                <marker date="1558829429885" expanded="true" signature="301:302" ph="..." />
+                <marker date="1558829429885" expanded="true" signature="301:307" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,7 +190,24 @@
       <find>What would you say is the problem in the shell into dar's situation.</find>
       <find>Identify the problem</find>
       <find>Identify the &quot;problem&quot; in this scenario</find>
+      <find>PEOPLE_DETAIL_URL</find>
+      <find>pytest</find>
+      <find>page</find>
+      <find>p</find>
+      <find>statuses</find>
+      <find>Statuses</find>
+      <find>getUID</find>
+      <find>requests</find>
+      <find>work_queue</find>
+      <find>follow</find>
+      <find>pid_path</find>
+      <find>log_path</find>
+      <find>WeiboClient</find>
+      <find>self.workers</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,20 +218,39 @@
         <option value="$PROJECT_DIR$/Mailer.py" />
         <option value="$USER_HOME$/Downloads/175273_nti_extract_da.txt" />
         <option value="$PROJECT_DIR$/mailer.py" />
+        <option value="$PROJECT_DIR$/test_twitter_api.py" />
+        <option value="$PROJECT_DIR$/test_some_api.py" />
+        <option value="$PROJECT_DIR$/test_weibo_api.py" />
+        <option value="$PROJECT_DIR$/peoples.py" />
+        <option value="$PROJECT_DIR$/sample_weibo_api.py" />
+        <option value="$PROJECT_DIR$/weibo/processors/get_followers_info.py" />
+        <option value="$PROJECT_DIR$/weibo/workers/scrapeWorker.py" />
+        <option value="$PROJECT_DIR$/weibo/settings.py" />
+        <option value="$PROJECT_DIR$/weibo/workers/__init__.py" />
+        <option value="$PROJECT_DIR$/weibo/workers/CrawlerWorker.py" />
+        <option value="$PROJECT_DIR$/weibo/processors/__init__.py" />
+        <option value="$PROJECT_DIR$/weibo/run_weibo.py" />
+        <option value="$PROJECT_DIR$/weibo/DB/Models/Followee.py" />
+        <option value="$PROJECT_DIR$/weibo/DB/Models/WeiboStatus.py" />
+        <option value="$PROJECT_DIR$/weibo/DB/Models/SessionManager.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="66" />
+    <option name="x" value="57" />
     <option name="y" value="23" />
     <option name="width" value="1332" />
-    <option name="height" value="808" />
+    <option name="height" value="805" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -89,11 +258,28 @@
               <item name="news_robot" type="b2602c69:ProjectViewProjectNode" />
               <item name="news_robot" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="news_robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_robot" type="462c0819:PsiDirectoryNode" />
+              <item name="weibo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_robot" type="462c0819:PsiDirectoryNode" />
+              <item name="weibo" type="462c0819:PsiDirectoryNode" />
+              <item name="DB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_robot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_robot" type="462c0819:PsiDirectoryNode" />
+              <item name="weibo" type="462c0819:PsiDirectoryNode" />
+              <item name="DB" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -112,7 +298,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.run_weibo">
     <configuration name="mailer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news_robot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,8 +320,74 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_weibo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="news_robot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/weibo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/weibo/run_weibo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample_weibo_api" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="news_robot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sample_weibo_api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in /Users/caoda1/Documents/news_robot/test_weibo_api.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="news_robot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test_weibo_api.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.mailer" />
+      <item itemvalue="Python tests.pytest in /Users/caoda1/Documents/news_robot/test_weibo_api.py" />
+      <item itemvalue="Python.sample_weibo_api" />
+      <item itemvalue="Python.run_weibo" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_weibo" />
+        <item itemvalue="Python.sample_weibo_api" />
+        <item itemvalue="Python tests.pytest in /Users/caoda1/Documents/news_robot/test_weibo_api.py" />
         <item itemvalue="Python.mailer" />
       </list>
     </recent_temporary>
@@ -153,50 +405,209 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_in_test_weibo_api_py - 2019.05.21 at 20h 00m 09s.xml">
+      <configuration name="pytest in test_weibo_api.py" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="23" width="1332" height="808" extended-state="0" />
+    <frame x="57" y="23" width="1332" height="805" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24942791" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2143402" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32959327" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18653576" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.22440393" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/175273_full_text.txt">
+    <entry file="file://$USER_HOME$/Downloads/175273_full_text.txt" />
+    <entry file="file://$USER_HOME$/Downloads/175273_nti_extract_da.txt" />
+    <entry file="file://$PROJECT_DIR$/test_twitter_api.py" />
+    <entry file="file://$PROJECT_DIR$/config/urls.py" />
+    <entry file="file://$PROJECT_DIR$/test_some_api.py" />
+    <entry file="file://$PROJECT_DIR$/.venv/lib/python3.5/site-packages/requests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3146">
-          <caret line="274" column="20" selection-start-line="274" selection-end-line="274" selection-end-column="20" />
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/175273_nti_extract_da.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test_weibo_api.py" />
     <entry file="file://$PROJECT_DIR$/mailer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        <state relative-caret-position="150">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.venv/lib/python3.5/site-packages/weibo_api/weibo/people.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2430">
+          <caret line="172" column="24" selection-start-line="172" selection-start-column="24" selection-end-line="172" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peoples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/processors/get_followers_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_weibo_api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="110" selection-start-line="95" selection-end-line="110" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+            <marker date="1558716324354" expanded="true" signature="680:1222" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.venv/lib/python3.5/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.venv/lib/python3.5/site-packages/daemonize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="135" column="34" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/followees.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="103" selection-start-line="10" selection-start-column="103" selection-end-line="10" selection-end-column="103" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+            <marker date="1558810052631" expanded="true" signature="60:536" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/workers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1558811779134" expanded="true" signature="134:135" ph="..." />
+            <marker date="1558811779134" expanded="true" signature="134:140" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/processors/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding>
+            <marker date="1558811870414" expanded="true" signature="229:230" ph="..." />
+            <marker date="1558811870414" expanded="true" signature="229:600" ph="..." />
+            <marker date="1558811870414" expanded="true" signature="1985:1994" ph="..." />
+            <marker date="1558811870414" expanded="true" signature="1985:2258" ph="..." />
+            <marker date="1558811870414" expanded="true" signature="2298:2559" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/run_weibo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#2#11#0" expanded="true" />
+            <marker date="1558811870418" expanded="true" signature="515:765" ph="..." />
+            <marker date="1558811870418" expanded="true" signature="776:1268" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/workers/CrawlerWorker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="44" selection-start-line="44" selection-end-line="52" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <marker date="1558811779139" expanded="true" signature="158:159" ph="..." />
+            <marker date="1558811779139" expanded="true" signature="158:1754" ph="..." />
+            <marker date="1558811779139" expanded="true" signature="277:441" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/DB/Models/Followee.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/DB/Models/WeiboStatus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1558829429890" expanded="true" signature="348:349" ph="..." />
+            <marker date="1558829429890" expanded="true" signature="348:354" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weibo/DB/Models/SessionManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="65" column="81" selection-start-line="65" selection-start-column="81" selection-end-line="65" selection-end-column="81" />
+          <folding>
+            <element signature="e#1#36#0" expanded="true" />
+            <marker date="1558829429885" expanded="true" signature="301:302" ph="..." />
+            <marker date="1558829429885" expanded="true" signature="301:307" ph="..." />
           </folding>
         </state>
       </provider>
