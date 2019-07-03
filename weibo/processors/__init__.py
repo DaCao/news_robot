@@ -40,8 +40,7 @@ class WeiboCrawlProcessor(object):
             followees_dict = json.load(f)
 
         self.followees = list(followees_dict.items())
-        self.users_left = len(self.followees)
-        # self.followees = self.followees[:10] # todo: delete
+        self.num_users_left = len(self.followees)
 
         for i in range(CrawlerSettings.NUM_CRAWLER_WORKERS):
             self.logger.debug('Starting Crawler Worker #{}...'.format(i))
@@ -80,9 +79,9 @@ class WeiboCrawlProcessor(object):
                 self.logger.debug('get_and_update_completed_work() failed')
                 self.logger.debug(e)
 
-            if self.users_left != len(self.followees):
+            if self.num_users_left != len(self.followees):
                 self.logger.info('self.followees has {} users left.'.format(len(self.followees)))
-                self.users_left = len(self.followees)
+                self.num_users_left = len(self.followees)
 
             if len(self.followees) == 0:
                 self.logger.info('self.followees has 0 user.')
@@ -112,7 +111,7 @@ class WeiboCrawlProcessor(object):
 
             # write to DB
             try:
-                self.write_course_records(completed_rows)
+                self.write_weibo_status_to_db(completed_rows)
             except Exception as e:
                 print(e)
                 break
@@ -136,7 +135,7 @@ class WeiboCrawlProcessor(object):
 
 
     @classmethod
-    def write_course_records(cls, completed_rows):
+    def write_weibo_status_to_db(cls, completed_rows):
         sm = CrawlerSessionManager.get_instance()
 
         with sm.get_session() as session:

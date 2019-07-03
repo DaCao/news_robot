@@ -35,10 +35,8 @@ class CrawlerSessionManager(object, metaclass=Singleton):
         self._engine = None
         self._engine_string = None
 
-        # self._engines = None
-        # self._engines = defaultdict(partial(defaultdict, dict))
 
-    def build_db_engine_string(self, user, password, host, port=3306, engine='mysql', db=None, charset=None):
+    def build_db_engine_string(self, user, password, host, port=3306, engine='mysql', db=None, charset='utf8mb4'):
         """
 
         :param user:
@@ -59,23 +57,21 @@ class CrawlerSessionManager(object, metaclass=Singleton):
             port=port
         )
 
-        if db is not None:
+
+        if db is None:
+            # empty db name, parameters cannot directly follow port
+            conn_string += '/'
+        else:
             conn_string += '/{db}'.format(db=db)
 
-        if charset is not None:
-            if db is None:
-                # empty db name, parameters cannot directly follow port
-                conn_string += '/'
-
-            # append charset param
-            conn_string += '?charset={}'.format(charset)
+        # append charset param
+        conn_string += '?charset={}'.format(charset)
 
         return conn_string
 
     @contextmanager
     def get_session(self, autoflush=True, autocommit=False):
         """
-
         :param company_id:
         :param db_type:
         :param autoflush:

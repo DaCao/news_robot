@@ -12,6 +12,7 @@ class CrawlerSettings(object):
     # LOG_FORMAT = '%(asctime)s - %(name)s (p:%(process)d, %(processName)s) - %(levelname)s - %(message)s'
 
     LOG_FORMAT = '%(name)s (p:%(process)d, %(processName)s) - %(levelname)s - %(message)s'
+    # LOG_FORMAT = '(p:%(processName)s) - %(levelname)s - %(message)s'
 
 
     # LOG_FORMAT = '%(asctime)s - [{host} %(name)s (p:%(process)d, %(processName)s) - %(levelname)s - %(message)s]'.format(
@@ -26,6 +27,5 @@ class CrawlerSettings(object):
     MAX_DEGREE_OF_RELATIONS = 3
 
     NUM_CRAWLER_WORKERS = 1
-    #NUM_CRAWLER_WORKERS = 1
 
 

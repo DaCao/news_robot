@@ -42,7 +42,7 @@ class CrawlerWorker(multiprocessing.Process):
 
             self.current_item = self.jobs_queue.get()
             self._set_busy()
-            self.logger.info('{} got user {}, and set to busy!!! '.format(self.name, self.current_item))
+            self.logger.info('{} got user {}, and set to busy.'.format(self.name, self.current_item))
             name, rows = self.perform_work()
             self.output_queue.put(rows)
             self.logger.info('{} finished working on {}'.format(self.name, name))
@@ -60,8 +60,12 @@ class CrawlerWorker(multiprocessing.Process):
 
         rows = []
 
-        for status in p.statuses.page(1):
-            self.logger.info('{} got {}\'s status on {}'.format(self.name, p.name, status.created_at))
+        # for status in p.statuses.all():
+        # for status in p.statuses.page(1):
+        for status in p.statuses.page_from_to(1, 100):
+
+            self.logger.info('{} got {}\'s status on {}, text type is {}'.format(self.name, p.name, status.created_at,
+                                                                                 type(status.text)))
 
             # print(u"微博动态：{}".format(status.id))
             # print(u"发布时间：{}".format(status.created_at))

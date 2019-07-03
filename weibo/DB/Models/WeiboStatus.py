@@ -30,3 +30,19 @@ class WeiboStatusItem(BASE):
 
 
 
+
+class MostRecentWeibo(BASE):
+
+    __tablename__ = 'user_most_recent_weibo'
+
+    user_id = Column('user_id', VARCHAR(60), primary_key=True)
+    user_name = Column('user_name', VARCHAR(60))
+    status_id = Column('status_id', VARCHAR(60))
+    creation_time = Column('creation_time', VARCHAR(60), nullable=False, default='')
+    text = Column('text', TEXT, nullable=True, default=None)
+
+
+
+
+
+
