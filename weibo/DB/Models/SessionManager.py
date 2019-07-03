@@ -1,33 +1,42 @@
-
+from functools import partial
 from collections import defaultdict
 from contextlib import contextmanager
 from threading import Thread, Lock, Event
 import traceback
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 from sqlalchemy.exc import DatabaseError
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 
+class Singleton(type):
+    _instances = {}
 
-class SessionManager(object):
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
 
-    _engines = {}
-    _db_config = None
-    _pool_args = None
+    def get_instance(cls):
+        return cls._instances[cls]
 
-    def __init__(self, db_config: dict, pool_args: dict=None, **kwargs):
+
+class CrawlerSessionManager(object, metaclass=Singleton):
+
+    def __init__(self, db_config):
         """
 
         :param db_config: Database config, consisting of known SQLAlchemy config key/values
         :param pool_args:
         :param kwargs:
         """
-
-        self._engines = None
         self._db_config = db_config
-        self._pool_args = pool_args
 
+        self._engine = None
+        self._engine_string = None
+
+        # self._engines = None
+        # self._engines = defaultdict(partial(defaultdict, dict))
 
     def build_db_engine_string(self, user, password, host, port=3306, engine='mysql', db=None, charset=None):
         """
@@ -63,13 +72,43 @@ class SessionManager(object):
 
         return conn_string
 
-    def get_session(self, company_id, db_type, autoflush=True, autocommit=False):
-        raise NotImplementedError
+    @contextmanager
+    def get_session(self, autoflush=True, autocommit=False):
+        """
+
+        :param company_id:
+        :param db_type:
+        :param autoflush:
+        :param autocommit:
+        :return:
+        """
+
+        session = scoped_session(sessionmaker(autoflush=autoflush, autocommit=autocommit, bind=self._engine))
+
+        try:
+            yield session
+        finally:
+            session.remove()
+
+
 
     def populate_engines(self):
-        raise NotImplementedError
+        """
+        Populate the session manager's internal engine mapping. The CrawlerSessionManager
 
+        :return:
+        """
 
+        self._engine_string = self.build_db_engine_string(
+            user=self._db_config['user'],
+            password=self._db_config['password'],
+            host=self._db_config['host'],
+            port=self._db_config['port'],
+            db=self._db_config['db'],
+            charset='utf8mb4'
+        )
+
+        self._engine = create_engine(self._engine_string)
 
 
 

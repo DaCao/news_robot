@@ -1,11 +1,15 @@
 import os
 import logging
 import signal
-from weibo.processors import Processor
+from weibo.processors import WeiboCrawlProcessor
 from weibo.settings import CrawlerSettings
 from daemonize import Daemonize
 from psutil import Process
 import sys
+import time
+import weibo.DB.Models.Followee
+import weibo.DB.Models.WeiboStatus
+
 
 
 def start_daemon(processor, logger, file_descriptors):
@@ -39,7 +43,7 @@ def main():
     logger.setLevel(logging.DEBUG)
     log_formatter = logging.Formatter(CrawlerSettings.LOG_FORMAT)
 
-    p = Processor(logger=logger, settings=CrawlerSettings)
+    p = WeiboCrawlProcessor(logger=logger, settings=CrawlerSettings)
 
     log_handler = logging.StreamHandler(sys.stdout)
     log_handler.setFormatter(log_formatter)
@@ -48,11 +52,14 @@ def main():
     keep_fds = [log_handler.stream.fileno()]
 
 
-    proc = Process() # todo: check it out
+    # proc = Process() # todo: check it out
 
     start_daemon(p, logger, file_descriptors=keep_fds)
 
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     main()
+    print("--- %s seconds ---" % (time.time() - start_time))
+

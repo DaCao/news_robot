@@ -10,7 +10,7 @@ class Followees(BASE):
 
     __tablename__ = 'followees'
 
-    uid = Column('id', VARCHAR(60), primary_key=True)
+    uid = Column('uid', VARCHAR(60), primary_key=True)
     name = Column('status_id', VARCHAR(60), primary_key=True)
     creation_time = Column('creation_time', DATETIME, nullable=False, default=datetime.datetime.utcnow)
     last_update_time = Column('last_update_time', DATETIME, nullable=False, default=datetime.datetime.utcnow)
