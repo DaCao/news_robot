@@ -1,6 +1,5 @@
 import ctypes
 import multiprocessing
-import traceback
 from weibo_api.client import WeiboClient
 from weibo.DB.Models.WeiboStatus import WeiboStatusItem
 
@@ -9,13 +8,13 @@ class CrawlerWorker(multiprocessing.Process):
 
     SYSLOG_NAME = 'CrawlerWorker'
 
-    def __init__(self, work_queue, output_queue, logger, settings, worker_number):
+    def __init__(self, jobs_queue, output_queue, logger, settings, worker_number):
 
         # get weibo api connection
         self.client = WeiboClient()
 
         self.name = '{}_{}'.format(self.SYSLOG_NAME, worker_number)
-        self.queue = work_queue
+        self.jobs_queue = jobs_queue
         self.output_queue = output_queue
         self.logger = logger
         self.settings = settings
@@ -28,37 +27,32 @@ class CrawlerWorker(multiprocessing.Process):
 
 
     def run(self):
-
         while True:
             self.worker_loop()
 
-            # try:
-            #     self.worker_loop()
-            # except Exception as e:
-            #     self.logger.error('Exception encountered while processing {}. Error: {}'.format(
-            #         self.current_item, str(e)
-            #     ))
-            #
-            #     self.logger.error(traceback.format_exc())
-            #
-            #     self.logger.info('Setting worker state to idle after unhandled exception...')
-            #     self._set_idle()
-            #     self.logger.info('{} is set to idle! '.format(self.name))
 
     def worker_loop(self):
 
         try:
-            self.current_item = self.queue.get()
+
+            if self.jobs_queue.empty():
+                self._set_idle()
+                self.logger.info('{} has empty jobs_queue, and is set to idle! '.format(self.name))
+                return
+
+            self.current_item = self.jobs_queue.get()
             self._set_busy()
-            self.logger.info('{} got user {}'.format(self.name, self.current_item))
+            self.logger.info('{} got user {}, and set to busy!!! '.format(self.name, self.current_item))
             name, rows = self.perform_work()
             self.output_queue.put(rows)
             self.logger.info('{} finished working on {}'.format(self.name, name))
+
         except Exception as e:
-            self.logger.error('{} worker_loop error:'.format(self.name))
+            self.logger.error('{} has worker_loop error:'.format(self.name))
             print(e)
             self._set_idle()
             self.logger.info('{} is set to idle! '.format(self.name))
+
 
     def perform_work(self):
         id, name = self.current_item

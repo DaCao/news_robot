@@ -2,9 +2,9 @@ import collections
 import json
 import multiprocessing
 import os
-import queue
 import time
 import traceback
+import queue
 from weibo.settings import CrawlerSettings
 from weibo.workers.CrawlerWorker import CrawlerWorker
 from weibo.DB.Models.SessionManager import CrawlerSessionManager
@@ -46,7 +46,7 @@ class WeiboCrawlProcessor(object):
         for i in range(CrawlerSettings.NUM_CRAWLER_WORKERS):
             self.logger.debug('Starting Crawler Worker #{}...'.format(i))
             w = CrawlerWorker(
-                work_queue = self.jobs_queue,
+                jobs_queue = self.jobs_queue,
                 output_queue = self.result_queue,
                 logger = self.logger,
                 settings = self.settings,
@@ -67,13 +67,12 @@ class WeiboCrawlProcessor(object):
         self.logger.debug('{} running'.format(type(self).__name__))
 
         while True:
+
             try:
-                self.get_and_dispatch_work()
+                self.get_idle_worker_and_dispatch_jobs()
             except Exception as e:
                 self.logger.debug('get_and_dispatch_work() failed')
                 self.logger.debug(e)
-
-            # self.get_and_update_completed_work()
 
             try:
                 self.get_and_update_completed_work()
@@ -82,16 +81,15 @@ class WeiboCrawlProcessor(object):
                 self.logger.debug(e)
 
             if self.users_left != len(self.followees):
-                print('fuck  ', len(self.followees))
+                self.logger.info('self.followees has {} users left.'.format(len(self.followees)))
                 self.users_left = len(self.followees)
-
 
             if len(self.followees) == 0:
                 self.logger.info('self.followees has 0 user.')
                 return
 
 
-    def get_and_dispatch_work(self):
+    def get_idle_worker_and_dispatch_jobs(self):
         # get number of idle workers
         idle_workers = self._get_idle_workers()
         # dispatch jobs to idle workers
@@ -107,23 +105,17 @@ class WeiboCrawlProcessor(object):
         while True:
             try:
                 completed_rows = self.result_queue.get(block=False) # todo:  setting block=False is so fucking important
-            # except Exception as e:
             except queue.Empty:
-                # self.logger.debug('result_queue is empty!   ')
                 break
 
-
-            self.logger.debug('Processor got completed work {} '.format(completed_rows))
-            # if row object generation was successful, attempt to write rows within a transaction
-
-            self.write_course_records(completed_rows)
+            self.logger.debug('Processor got completed work with {} weibo posts'.format(len(completed_rows)))
 
             # write to DB
-            # try:
-            #     self.write_course_records(completed_rows)
-            # except Exception as e:
-            #     print(e)
-            #     break
+            try:
+                self.write_course_records(completed_rows)
+            except Exception as e:
+                print(e)
+                break
 
 
 
@@ -143,7 +135,6 @@ class WeiboCrawlProcessor(object):
         return os.path.join(self.settings.DAEMON_PIDFILE_BASEPATH, '{}.pid'.format(self.SYSLOG_NAME))
 
 
-
     @classmethod
     def write_course_records(cls, completed_rows):
         sm = CrawlerSessionManager.get_instance()
@@ -154,8 +145,6 @@ class WeiboCrawlProcessor(object):
                 session.add(row)
 
             session.commit()
-
-
 
         return
 

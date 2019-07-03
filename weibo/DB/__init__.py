@@ -10,6 +10,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 from weibo.DB.Models.Followee import Followees
 from weibo.DB.Models.SessionManager import CrawlerSessionManager
+from weibo.DB.Models.WeiboStatus import WeiboStatusItem
 
 
 
@@ -26,13 +27,19 @@ def initialize():
 
     engine = create_engine('mysql://root@127.0.0.1:3306/weibo')
     metadata = MetaData(engine)
-    if not engine.dialect.has_table(engine, 'user'):  # If table don't exist, Create.
 
-        Table('user', metadata,
-              Column('id', Integer, primary_key=True),
-              Column('name', String(50)),
-              Column('fullname', String(100))
-              )
+    # nuke
+    # metadata.drop_all(bind=engine, tables=[WeiboStatusItem.__table__])
+    WeiboStatusItem.__table__.drop(engine)
+
+
+    # if not engine.dialect.has_table(engine, 'user'):  # If table don't exist, Create.
+    #
+    #     Table('user', metadata,
+    #           Column('id', Integer, primary_key=True),
+    #           Column('name', String(50)),
+    #           Column('fullname', String(100))
+    #           )
 
     # if not engine.dialect.has_table(engine, 'followees'):  # If table don't exist, Create.
     #
