@@ -9,6 +9,7 @@ from weibo.settings import CrawlerSettings
 from weibo.workers.CrawlerWorker import CrawlerWorker
 from weibo.DB.Models.SessionManager import CrawlerSessionManager
 import weibo.DB as DB
+from weibo.DB.Models.WeiboStatus import MostRecentWeibo
 
 
 class WeiboCrawlProcessor(object):
@@ -38,8 +39,11 @@ class WeiboCrawlProcessor(object):
 
         with open('/Users/caoda1/Documents/news_robot/weibo/followees.json', 'r') as f:
             followees_dict = json.load(f)
-
         self.followees = list(followees_dict.items())
+
+
+        # self.followees = self.load_users_and_most_recent_weibo()
+
         self.num_users_left = len(self.followees)
 
         for i in range(CrawlerSettings.NUM_CRAWLER_WORKERS):
@@ -104,14 +108,19 @@ class WeiboCrawlProcessor(object):
         while True:
             try:
                 completed_rows = self.result_queue.get(block=False) # todo:  setting block=False is so fucking important
+                most_recent_row, all_rows = completed_rows
+                self.logger.debug('Processor got completed work with {} weibo posts'.format(len(all_rows)))
             except queue.Empty:
                 break
 
-            self.logger.debug('Processor got completed work with {} weibo posts'.format(len(completed_rows)))
+
+
+            self.write_most_recent_weibo(most_recent_row)
+
 
             # write to DB
             try:
-                self.write_weibo_status_to_db(completed_rows)
+                self.write_weibo_status_to_db(all_rows)
             except Exception as e:
                 print(e)
                 break
@@ -148,4 +157,21 @@ class WeiboCrawlProcessor(object):
         return
 
 
+    @classmethod
+    def write_most_recent_weibo(cls, most_recent_row):
 
+
+
+        pass
+
+
+
+    def load_users_and_most_recent_weibo(self):
+
+        sm = CrawlerSessionManager.get_instance()
+
+        with sm.get_session() as session:
+            items = session.query(MostRecentWeibo.user_id, MostRecentWeibo.user_name, MostRecentWeibo.status_id)
+
+        print(type(items))
+        return items

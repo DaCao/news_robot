@@ -62,7 +62,7 @@ class CrawlerWorker(multiprocessing.Process):
 
         # for status in p.statuses.all():
         # for status in p.statuses.page(1):
-        for status in p.statuses.page_from_to(1, 100):
+        for status in p.statuses.page_from_to(90, 100):
 
             self.logger.info('{} got {}\'s status on {}, text type is {}'.format(self.name, p.name, status.created_at,
                                                                                  type(status.text)))
