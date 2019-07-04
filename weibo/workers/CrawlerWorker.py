@@ -2,6 +2,7 @@ import ctypes
 import multiprocessing
 from weibo_api.client import WeiboClient
 from weibo.DB.Models.WeiboStatus import WeiboStatusItem
+from weibo_api.utils.exception import UnexpectedResponseException
 
 
 class CrawlerWorker(multiprocessing.Process):
@@ -49,7 +50,7 @@ class CrawlerWorker(multiprocessing.Process):
 
         except Exception as e:
             self.logger.error('{} has worker_loop error:'.format(self.name))
-            print(e)
+            # print(e)
             self._set_idle()
             self.logger.info('{} is set to idle! '.format(self.name))
 
@@ -60,12 +61,16 @@ class CrawlerWorker(multiprocessing.Process):
 
         rows = []
 
-        # for status in p.statuses.all():
-        # for status in p.statuses.page(1):
-        for status in p.statuses.page_from_to(90, 100):
 
-            self.logger.info('{} got {}\'s status on {}, text type is {}'.format(self.name, p.name, status.created_at,
-                                                                                 type(status.text)))
+        # print('fuck: ')
+        # print(p.statuses._pages)
+        # last_page = p.statuses._pages
+        # for status in p.statuses.page_from_to(13, 14):
+        # for status in p.statuses.page(last_page):
+        for status in p.statuses.all():
+            self.logger.info('{} got ({}, {})\'s status on {}, text type is {}'.format(self.name, p.name, p.id,
+                                                                                       status.created_at,
+                                                                                        type(status.text)))
 
             # print(u"微博动态：{}".format(status.id))
             # print(u"发布时间：{}".format(status.created_at))
@@ -76,16 +81,21 @@ class CrawlerWorker(multiprocessing.Process):
             # print(u"发布于：{}".format(status.source))
             # print("==================================================")
 
-            rows.append(WeiboStatusItem(
-                status_id = status.id,
-                user_id = p.name,
-                creation_time = status.created_at,
-                text = status.text,
-                reposts_count = status.reposts_count,
-                attitudes_count = status.attitudes_count,
-                comments_count = status.comments_count,
-                source = status.source
-            ))
+            try:
+                rows.append(WeiboStatusItem(status_id = status.id,
+                                            user_id = p.id,
+                                            user_name = p.name,
+                                            creation_time = status.created_at,
+                                            text = status.text,
+                                            reposts_count = status.reposts_count,
+                                            attitudes_count = status.attitudes_count,
+                                            comments_count = status.comments_count,
+                                            source = status.source)
+                            )
+            except UnexpectedResponseException as e:
+                self.logger.error('status gives error: {}'.format(e))
+                continue
+
 
         return name, rows
 

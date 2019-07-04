@@ -28,9 +28,6 @@ class WeiboStatusItem(BASE):
     # units = relationship('followee')
 
 
-
-
-
 class MostRecentWeibo(BASE):
 
     __tablename__ = 'user_most_recent_weibo'

@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 from weibo.DB.Models.Followee import Followees
 from weibo.DB.Models.SessionManager import CrawlerSessionManager
-from weibo.DB.Models.WeiboStatus import WeiboStatusItem
+from weibo.DB.Models.WeiboStatus import WeiboStatusItem, MostRecentWeibo
 
 
 
@@ -31,6 +31,7 @@ def initialize():
     # nuke
     # metadata.drop_all(bind=engine, tables=[WeiboStatusItem.__table__])
     WeiboStatusItem.__table__.drop(engine)
+    MostRecentWeibo.__table__.drop(engine)
 
 
     # if not engine.dialect.has_table(engine, 'user'):  # If table don't exist, Create.
@@ -69,14 +70,23 @@ def initialize():
 
             Column('user_name', VARCHAR(60)),
             Column('creation_time', VARCHAR(60), nullable=False, default=''),
-            # Column('text', LONGTEXT(collation='utf8_bin'), nullable=True, default=None),
             Column('text', TEXT, nullable=True, default=None),
             Column('reposts_count', INTEGER),
             Column('attitudes_count', INTEGER),
             Column('comments_count', INTEGER),
             Column('source', TEXT),
-
         )
+
+    if not engine.dialect.has_table(engine, 'user_most_recent_weibo'):  # If table don't exist, Create.
+
+        Table('user_most_recent_weibo', metadata,
+            Column('user_id', VARCHAR(60), primary_key=True),
+            Column('user_name', VARCHAR(60)),
+            Column('status_id', VARCHAR(60)),
+            Column('creation_time', VARCHAR(60), nullable=False, default=''),
+            Column('text', TEXT, nullable=True, default=None)
+        )
+
 
     metadata.create_all()
 

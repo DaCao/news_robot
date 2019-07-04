@@ -9,7 +9,9 @@ from weibo.settings import CrawlerSettings
 from weibo.workers.CrawlerWorker import CrawlerWorker
 from weibo.DB.Models.SessionManager import CrawlerSessionManager
 import weibo.DB as DB
-from weibo.DB.Models.WeiboStatus import MostRecentWeibo
+from weibo.DB.Models.WeiboStatus import MostRecentWeibo, WeiboStatusItem
+from sqlalchemy.dialects.mysql import insert
+from sqlalchemy import exists
 
 
 class WeiboCrawlProcessor(object):
@@ -41,6 +43,12 @@ class WeiboCrawlProcessor(object):
             followees_dict = json.load(f)
         self.followees = list(followees_dict.items())
 
+        # self.followees = \
+        #     [('1895964183', '一起神回复'), ('2134671703', '哈囉李敖'), ('5187664653', '邓超'), ('5501429448', '视觉机器人'),
+        #      ('1721030997', '网易云音乐'), ('6049590367', '局座召忠'), ('1182391231', '潘石屹'), ('1192515960', '李冰冰'),
+        #      ('1887896087', '广州小资族'), ('1483820045', '尼格买提'), ('3173341643', 'IT数码收录'), ('3952070245', '范冰冰'),
+        #      ('1237869662', '南派三叔'), ('1345566427', '佟丽娅'), ('1768305123', '贾静雯'), ('2827050962', '段子坊'),
+        #      ('2095230872', '柯泯哲'), ('1743519310', '刘语熙rachel'), ('1198392970', '易中天'), ('1496852380', '崔永元')]
 
         # self.followees = self.load_users_and_most_recent_weibo()
 
@@ -108,22 +116,24 @@ class WeiboCrawlProcessor(object):
         while True:
             try:
                 completed_rows = self.result_queue.get(block=False) # todo:  setting block=False is so fucking important
-                most_recent_row, all_rows = completed_rows
-                self.logger.debug('Processor got completed work with {} weibo posts'.format(len(all_rows)))
+                self.logger.debug('Processor got completed work with {} weibo posts'.format(len(completed_rows)))
             except queue.Empty:
                 break
 
 
-
-            self.write_most_recent_weibo(most_recent_row)
-
-
             # write to DB
             try:
-                self.write_weibo_status_to_db(all_rows)
+                most_recent_row = completed_rows[0]
+                self.write_most_recent_weibo(most_recent_row)
             except Exception as e:
+                self.logger.debug('processor cannot write most recent weibo to DB')
                 print(e)
-                break
+
+            try:
+                self.write_weibo_status_to_db(completed_rows)
+            except Exception as e:
+                self.logger.debug('processor cannot write weibo to DB')
+                print(e)
 
 
 
@@ -160,9 +170,29 @@ class WeiboCrawlProcessor(object):
     @classmethod
     def write_most_recent_weibo(cls, most_recent_row):
 
+        sm = CrawlerSessionManager.get_instance()
+        with sm.get_session() as session:
 
+            user_exists = session.query(exists().where(MostRecentWeibo.user_id == most_recent_row.user_id)).scalar()
 
-        pass
+            if user_exists:
+                session.query(MostRecentWeibo).filter_by(user_id = most_recent_row.user_id).\
+                    update({'user_name': most_recent_row.user_name,
+                            'status_id': most_recent_row.status_id,
+                            'creation_time': most_recent_row.creation_time,
+                            'text': most_recent_row.text})
+            else:
+                row = MostRecentWeibo(user_id = most_recent_row.user_id,
+                                        user_name = most_recent_row.user_name,
+                                        status_id = most_recent_row.status_id,
+                                        creation_time = most_recent_row.creation_time,
+                                        text = most_recent_row.text
+                                )
+                session.add(row)
+
+            session.commit()
+
+        return
 
 
 

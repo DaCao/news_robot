@@ -26,6 +26,6 @@ class CrawlerSettings(object):
     MAX_NUM_STATUS_TO_CRAWL = 1000
     MAX_DEGREE_OF_RELATIONS = 3
 
-    NUM_CRAWLER_WORKERS = 1
+    NUM_CRAWLER_WORKERS = 4
 
 
